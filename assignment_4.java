@@ -16,6 +16,7 @@ public class assignment_4 {
         }
     }
 
+    //door control
     static void doorStatus(int doorCheck, int floorOn, int floorSelected){
         if(doorCheck == 1 && floorSelected == 0) {
             System.out.println("Doors are open");
@@ -23,14 +24,15 @@ public class assignment_4 {
         }
         else if(doorCheck == 2){
             System.out.println("Doors are closed");
+            elevatorStatus(floorOn, floorSelected);
         }
         else if(doorCheck == 3 && floorSelected == 0){
             System.out.println("Nothing happens");
             button(floorOn);
         }
-        elevatorStatus(floorOn, floorSelected);
     }
 
+    //button floor selector
     static void button(int floorOn){
         Scanner myObj = new Scanner(System.in);
         System.out.println("Which floor? 1, 2, or 3");
@@ -39,6 +41,7 @@ public class assignment_4 {
         doorStatus(2, floorOn, floorInput);
     }
 
+    //Elevator control/checker
     static void elevatorStatus(int floorOn, int floorSelected){
         boolean status = floorCheck(floorOn, floorSelected);
         if(status == true && floorSelected > floorOn) {
